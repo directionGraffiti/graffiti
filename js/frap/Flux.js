@@ -13,6 +13,7 @@ Flux = {
 			type: 'GET',
 			url: Flux._url_flux,
 			timeout: 3000,
+			dataType:'json',
 			success: function(data) {
 				Flux._frap_flux = data;
 				if(Flux._frap_flux) {
