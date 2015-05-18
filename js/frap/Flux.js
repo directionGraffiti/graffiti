@@ -17,7 +17,7 @@ Flux = {
 				url: Flux._url_flux,
 				timeout: 3000,
 				success: function(data) {
-					Flux._frap_flux = data;
+					eval('Flux._frap_flux = '+data);
 					if(Flux._frap_flux) {
 						Podcasts.init();
 						//Videos.init();
