@@ -25,10 +25,9 @@ Api = {
 		console.log(Flux._frap_flux.destinataires);
 
        // console.log('Destinataires : '+Flux._frap_flux.destinataires.length);
-        /*for(var d=0;d<Flux._frap_flux.destinataires.length;d++) {
+        for(var d=0;d<Flux._frap_flux.destinataires.length;d++) {
             this._list_destinataire += '<option value="'+Flux._frap_flux.destinataires[d].mail+'">'+Flux._frap_flux.destinataires[d].nom+'</option>';
-        }*/
-            this._list_destinataire += '<option value="'+Flux._frap_flux.destinataires.mail+'">'+Flux._frap_flux.destinataires.nom+'</option>';
+        }
 
         $('#c_destinataire').append(this._list_destinataire);
     },
