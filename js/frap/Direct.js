@@ -13,8 +13,6 @@ Direct = {
 	init : function() {
 		this._url_direct = Flux._frap_flux.ws_meta_direct;
         jembe.http.get({url:Direct._url_direct, onSuccess:Direct.callback_direct, onError:Direct.callaback_error});
-        
-		
 	},
 
 	callback_direct : function(msg) {

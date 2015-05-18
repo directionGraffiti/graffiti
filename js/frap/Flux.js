@@ -9,34 +9,26 @@ Flux = {
     },
 
     getFlux : function() {
-        jembe.http.get({
-            url:Flux._url_flux,
-            onSuccess:Flux.callback_frap,
-            onError:Flux.callaback_error
-        });
+		$.ajax({ 
+			type: 'GET',
+			url: Flux._url_flux,
+			timeout: 3000,
+			success: function(data) {
+				Flux._frap_flux = data;
+				if(Flux._frap_flux) {
+					Podcasts.init();
+					//Videos.init();
+					Api.init();
+					Player.init();
+					Direct.init();
+				} else {
+					alert('connexion error flux');
+				}
+			},
+			error: function() {
+				console.log('error de connexion au FLUX');
+			}
+		});
     },
-
-    callback_frap : function(msg) {
-        try {
-            eval('Flux._frap_flux = '+msg);
-        } catch(e) {
-            Flux._frap_flux='';
-        }
-
-        if(Flux._frap_flux) {
-            Podcasts.init();
-            //Videos.init();
-            Api.init();
-            Player.init();
-			Direct.init();
-        } else {
-            alert('connexion error flux');
-        }
-
-    },
-
-    callaback_error : function(msg) {
-        console.log('error de connexion au FLUX '+msg);
-    }
 
 }
