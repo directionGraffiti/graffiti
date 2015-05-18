@@ -12,24 +12,23 @@ Podcasts = {
 
     init : function() {
         this._url_podcasts = Flux._frap_flux.ws_podcasts+'?field_date_de_diffusion_value[value][year]='+this._date_select.getFullYear()+'&field_date_de_diffusion_value[value][month]='+(this._date_select.getMonth()+1)+'&field_date_de_diffusion_value[value][day]='+this._date_select.getDate();
-        jembe.http.get({url:Podcasts._url_podcasts, onSuccess:Podcasts.callback_podcasts, onError:Podcasts.callaback_error});
-    },
-
-    callaback_error : function(msg) {
-        console.log('error de connexion au JSON Podcasts '+msg)
-        $('#page_podcasts').find('#scroller').html('<div align="center" style="margin-top:35px;">Erreur de chargement des données.<br />Service en maintenance</div>');
-    },
-
-    callback_podcasts : function(msg) {
-        //console.log(msg)
-        try {
-            eval('Podcasts._list_podcasts = '+msg);
-            Podcasts.loadPodcasts();
-        } catch(e) {
-            console.log('rien dans le json='+ e.message);
-            $('#page_podcasts').find('#scroller').html('<div align="center" style="margin-top:35px;">Erreur de chargement des données.<br />Service en maintenance</div>');
-            Podcasts._list_podcasts="";
-        }
+		
+		$.ajax
+		({
+			url: Podcasts._url_podcasts, 		
+			method: 'GET',
+			dataType: 'json',
+			success: function(data) 
+			{
+				Podcasts._list_podcasts=data;
+				console.log(Podcasts._list_podcasts);
+				Podcasts.loadPodcasts();
+			},
+				error: function() 
+			{
+				console.log("Pas d'éléments");
+			}
+		});
     },
 
     changeDate : function(p_num) {
