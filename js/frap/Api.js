@@ -22,7 +22,8 @@ Api = {
         $('#num_message').attr('href','tel:'+Flux._frap_flux.telephone_msg);
         $('#num_standard').attr('href','tel:'+Flux._frap_flux.telephone_std);
 		
-		console.log(Flux._frap_flux);
+		console.log(Flux._frap_flux.destinataires[0]);
+		console.log(Flux._frap_flux.destinataires);
 
        // console.log('Destinataires : '+Flux._frap_flux.destinataires.length);
         /*for(var d=0;d<Flux._frap_flux.destinataires.length;d++) {
