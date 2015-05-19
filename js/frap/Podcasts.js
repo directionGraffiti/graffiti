@@ -83,31 +83,28 @@ Podcasts = {
         if(this._current_podcast_play!='' || this._current_podcast_play==0) this.pausePodcast(this._current_podcast_play);
         this._current_podcast_play=p_node;
         var elm=$('#podcast_'+p_node);
-        //$('#player_podcasts').animate({'bottom':'0px'},400);
+        $('#player_podcasts').animate({'bottom':'0px'},400);
         elm.parents('.line_podcasts').addClass('active');
         elm.find('.play').css('display','none');
         elm.find('.pause').css('display','block');
-		
-		this.updatePlayer();
 		
 		Player.player_aod.aod({
             'track_url': Podcasts._list_podcasts[p_node].son,
             'time_end': getTimeStamp()+10000,
             'time_start': getTimeStamp()
         });
-		Player.refresh_status('aod');
     },
 
     pausePodcast : function(p_node) {
         var elm=$('#podcast_'+p_node);
-        //$('#player_podcasts').animate({'bottom':'-100%'},400);
+        $('#player_podcasts').animate({'bottom':'-100%'},400);
         elm.parents('.line_podcasts').removeClass('active');
         elm.find('.play').css('display','block');
         elm.find('.pause').css('display','none');
 		Player.player_aod.pause();
         this._current_podcast_play='';
     },
-	
+
     likePodcasts : function(p_node) {
         if($('#podcast_like_'+p_node).hasClass('active')) {
             console.log('deja like');
