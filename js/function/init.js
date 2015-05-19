@@ -6,6 +6,7 @@ var is_waiting=false;
 var _is_alert=false;
 var is_started=false;
 var isIOS=false;
+var isAndroid2=false;
 var open_nav=false;
 var moveContainer=false;
 var espaceTouch=0;
@@ -21,7 +22,38 @@ var getOnMoveEvent = function() {return ('ontouchmove' in window) ? 'touchmove' 
 var getOnMoveEndEvent = function() {return ('ontouchend' in window) ? 'touchend' : 'mouseup';};
 
 if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i)) || (navigator.userAgent.match(/Chrome/i))) isIOS = true;
+if(navigator.userAgent.match(/Android/i)) isAndroid2 = true;
 jembe.internet.listen(onOffline);
+
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    document.addEventListener("backbutton", showConfirm, false);
+}
+
+// process the confirmation dialog result
+function onConfirm(button) {
+    //alert('Vous avez appuyé sur le bouton ' + button);
+    if (button == 1) 
+    {
+    	console.log('App close');
+    	navigator.app.exitApp();
+    }
+    else 
+    {
+    	console.log('Windows close');
+        window.close();
+    }
+}
+
+function showConfirm() {
+    navigator.notification.confirm(
+        'Voulez-vous quitter l\'application ?',  // message
+        onConfirm,            // fonction de callback appelée avec l'indice du bouton pressé
+        'Quitter',            // titre
+        ['Oui','Non']  // libellés des boutons
+    );
+}
 
 $(document).ready(function () {
 	ismobile = (/iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(navigator.userAgent.toLowerCase()));
@@ -29,8 +61,8 @@ $(document).ready(function () {
 	jembe.settings.set({'param':'status-bar-style', 'value':'black-translucent'});
 	jembe.alert.notify({'tickerText': 'Graffiti Urban Radio', 'contentTitle': 'Graffiti Urban Radio', 'contentText': '', 'flag': 'service'});
 	jembe.control.listenState(minimizeAPI);
-	jembe.control.listenKey('4', chooseBackOptions, true);
-	jembe.control.listenKey('82', openMenuAndroid);
+	//jembe.control.listenKey('4', chooseBackOptions, true);
+	//jembe.control.listenKey('82', openMenuAndroid);
 
 	$(document).bind('touchmove',function(e) {
 		e.preventDefault();
@@ -106,7 +138,7 @@ function minimizeAPI(newState) {
 	}
 }
 
-function chooseBackOptions() {
+/*function chooseBackOptions() {
 	jembe.alert.show({
 		message:'Voulez-vous quitter l\'application ?',
 		onSuccess: onConfirmQuit,
@@ -118,7 +150,7 @@ function onConfirmQuit(button) {
 	if (button==1) {
 		jembe.control.quit();
 	}
-}
+}*/
 
 function openMenuAndroid() {
 	if(menu_open_android) {

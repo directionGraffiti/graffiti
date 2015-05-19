@@ -19,7 +19,6 @@ Api = {
     },
 
     initVar : function() {
-        $('#num_message').attr('href','tel:'+Flux._frap_flux.telephone_msg);
         $('#num_standard').attr('href','tel:'+Flux._frap_flux.telephone_std);
 		
 		console.log(Flux._frap_flux);

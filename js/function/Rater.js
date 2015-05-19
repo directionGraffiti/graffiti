@@ -32,12 +32,18 @@ Rater = {
     },
 
     callPopinRater : function() {
-        jembe.alert.show({
+        /*jembe.alert.show({
             title : 'Notez l\'appplication',
             message : 'Vous avez appréciez l\'application '+Rater._titre_appli+' ? Donnez votre avis et évaluez l\'application en vous rendant sur l\'app Store.',
             buttons : 'Noter l\'application|Plus tard|Ne plus afficher ce message',
             onSuccess : Rater.callBackPopin
-        });
+        });*/
+		navigator.notification.confirm(
+			'Vous avez appréciez l\'application '+Rater._titre_appli+' ? Donnez votre avis et évaluez l\'application en vous rendant sur le Store.',  // message
+			Rater.callBackPopin,            // fonction de callback appelée avec l'indice du bouton pressé
+			'Notez l\'appplication',            // titre
+			['Noter l\'application','Plus tard','Ne plus afficher ce message']  // libellés des boutons
+		);
     },
 
     callBackPopin : function(button) {
@@ -46,8 +52,10 @@ Rater = {
             Rater._already_noted=1;
             if (isIOS) {
                 document.location.href='itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=606885106';
-            } else {
+            } else if (isAndroid2) {
                 document.location.href='https://play.google.com/store/apps/details?id=fr.radiofrance.rfpodcasts&write_review=true';
+            } else {
+                document.location.href='';
             }
         } else if(button==1) {
             //alert('plus tard');
