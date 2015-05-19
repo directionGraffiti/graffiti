@@ -202,8 +202,6 @@ Player = {
     choseQuality : function() {
         //alert('Flux._frap_flux.mp3_direct.iOS = '+Flux._frap_flux.mp3_direct.iOS);
         if (jembe.info.platform=="server") return Flux._frap_flux.mp3_direct.hifi;
-        else if (jembe.info.platform=="iPhone OS") return Flux._frap_flux.mp3_direct.iOS;
-        else if (jembe.info.platform=="android") return Flux._frap_flux.mp3_direct.android;
         else return Flux._frap_flux.mp3_direct.lofi;
     },
 	
@@ -216,7 +214,7 @@ Player = {
 
 		Player.player.direct({
             'track_url': Player.choseQuality(),
-            'track_url_ts': '',//Flux._frap_flux.mp3_ts,
+            'track_url_ts': Flux._frap_flux.mp3_ts,
             'time_end': getTimeStamp() + 2400,
             'time_start': getTimeStamp() - 3600
         });
