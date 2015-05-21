@@ -32,6 +32,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.addEventListener("backbutton", showConfirm, false);
 	console.log(navigator.connection.type);
+	console.log(navigator.onLine);
 }
 
 // process the confirmation dialog result
