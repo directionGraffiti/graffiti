@@ -25,6 +25,8 @@ if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i)
 if(navigator.userAgent.match(/Android/i)) isAndroid2 = true;
 jembe.internet.listen(onOffline);
 
+console.log(jembe.internet.listen);
+
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.addEventListener("backbutton", showConfirm, false);
