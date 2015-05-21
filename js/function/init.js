@@ -65,12 +65,6 @@ $(document).ready(function () {
 	jembe.control.listenState(minimizeAPI);
 	//jembe.control.listenKey('4', chooseBackOptions, true);
 	//jembe.control.listenKey('82', openMenuAndroid);
-	
-	function checkConnection() {
-	
-		alert(navigator.connection.type);
-	}
-	checkConnection();
 
 	$(document).bind('touchmove',function(e) {
 		e.preventDefault();
