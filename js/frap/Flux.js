@@ -24,7 +24,6 @@ Flux = {
 						Api.init();
 						Player.init();
 						//Direct.init();
-						console.log(navigator.connection.type);
 					} else {
 						alert('connexion error flux');
 					}
