@@ -68,7 +68,15 @@ $(document).ready(function () {
 		e.preventDefault();
 	});
 
-	if (navigator.onLine==false) onOffline();
+	if (navigator.onLine==false) 
+	{
+		onOffline();
+		console.log('OFFLINE');
+	}
+	else
+	{
+		console.log('ONLINE');
+	}
 	//if (navigator.onLine==false) setTimeout(onOffline,2000);
 
     _menu_height=($('#menu').height()+10);
