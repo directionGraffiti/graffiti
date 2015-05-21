@@ -23,10 +23,6 @@ var getOnMoveEndEvent = function() {return ('ontouchend' in window) ? 'touchend'
 
 if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i)) || (navigator.userAgent.match(/Chrome/i))) isIOS = true;
 if(navigator.userAgent.match(/Android/i)) isAndroid2 = true;
-jembe.internet.listen(onOffline);
-
-console.log("<--------------jembe.internet.listen-------------->");
-console.log(onOffline);
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -72,8 +68,8 @@ $(document).ready(function () {
 		e.preventDefault();
 	});
 
-	if (jembe.internet.status=="NotReachable") onOffline();
-	if (jembe.internet.status=="waiting") setTimeout(testConnexion,2000);
+	if (navigator.onLine==false) onOffline();
+	//if (navigator.onLine==false) setTimeout(onOffline,2000);
 
     _menu_height=($('#menu').height()+10);
     height_page=(window.innerHeight-_menu_height);
@@ -166,6 +162,38 @@ function openMenuAndroid() {
 	}
 }
 
+function onOffline() {
+	navigator.notification.confirm(
+        'La connexion est perdue. Veuillez vérifier l\'état du réseau.',  // message
+        newCheckReseau,            // fonction de callback appelée avec l'indice du bouton pressé
+        'Problème réseau',            // titre
+        ['Annuler','Réessayer']  // libellés des boutons
+    );
+}
+
+function newCheckReseau(button) {
+	if (button == 1) 
+    {
+    	console.log('App close');
+    	navigator.app.exitApp();
+    }
+    else 
+    {
+    	console.log('Retest');
+        window.close();
+		if (navigator.onLine==false) 
+		{
+			onOffline();
+		}
+		else
+		{
+			Flux.init();
+		}
+    }
+}
+
+
+/*
 function testConnexion() {
 	if (jembe.internet.status=="waiting") is_waiting=true;
 	onOffline();
@@ -196,7 +224,7 @@ function checkUpdates() {
             // pas de pub
 		}
 	}
-}
+}*/
 
 var getMouseY = function(e){
     if ('ontouchmove' in window) {
