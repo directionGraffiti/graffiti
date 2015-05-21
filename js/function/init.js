@@ -32,7 +32,7 @@ function onDeviceReady() {
 	
 	var statutConnect = navigator.onLine;
 
-	if (statutConnect=="false") 
+	if (statutConnect==false) 
 	{
 		onOffline();
 		console.log('OFFLINE');
@@ -192,7 +192,7 @@ function newCheckReseau(button) {
     {
     	console.log('Retest');
 		var statutConnect = navigator.onLine;
-		if (statutConnect=="false") 
+		if (statutConnect==false) 
 		{
 			onOffline();
 		}
