@@ -26,7 +26,7 @@ if(navigator.userAgent.match(/Android/i)) isAndroid2 = true;
 jembe.internet.listen(onOffline);
 
 console.log(">---jembe.internet.status---<");
-console.log(jembe.internet.status);
+console.log(navigator.network.connection);
 
 
 document.addEventListener("deviceready", onDeviceReady, false);
