@@ -67,8 +67,10 @@ $(document).ready(function () {
 	$(document).bind('touchmove',function(e) {
 		e.preventDefault();
 	});
+	
+	var statutConnect = navigator.onLine;
 
-	if (navigator.onLine=="false") 
+	if (statutConnect=="false") 
 	{
 		onOffline();
 		console.log('OFFLINE');
@@ -188,8 +190,8 @@ function newCheckReseau(button) {
     else 
     {
     	console.log('Retest');
-        window.close();
-		if (navigator.onLine=="false") 
+		var statutConnect = navigator.onLine;
+		if (statutConnect=="false") 
 		{
 			onOffline();
 		}
@@ -197,6 +199,7 @@ function newCheckReseau(button) {
 		{
 			Flux.init();
 		}
+		window.close();
     }
 }
 
