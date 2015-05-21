@@ -36,7 +36,11 @@
 	<gap:plugin name="org.apache.cordova.camera"/>
 	<gap:plugin name="org.apache.cordova.dialogs"/>
 	<gap:plugin name="org.apache.cordova.vibration"/>
-	<gap:plugin name="org.apache.cordova.network-information"/>
+	<gap:plugin name="org.apache.cordova.networkmanager"/>
+	
+	<uses-permission android:name="android.permission.internet" />
+	<uses-permission android:name="android.permission.access_network_state" />
+	<uses-permission android:name="android.permission.read_phone_state" />
 	
 	<icon src="images/logos/ios/57x57.png" gap:platform="ios" width="57" height="57" />
 	<icon src="images/logos/ios/72x72.png" gap:platform="ios" width="72" height="72" />
