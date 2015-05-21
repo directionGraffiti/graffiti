@@ -119,15 +119,15 @@ Player = {
 		// -----------------------------------
         // Player de l'onglet podcast
 		
-		/*
+		
 		this.player_aod = JsPlayer.addPlayer({
-            'id': '2',
+            'id': '1',
             'el': $("#player_podcasts"),
-            'template_id': 'player-template2',
+            'template_id': 'player-template',
             'swf_path': 'flash/JsPlayer/jsplayer.swf',
             'on_ready': Player.playDefaultSound
         });
-		*/
+		
 		
 		
 		// initialisation des éléments visibles ou cachés
