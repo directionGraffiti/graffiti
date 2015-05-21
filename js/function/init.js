@@ -29,6 +29,18 @@ function onDeviceReady() {
     document.addEventListener("backbutton", showConfirm, false);
 	console.log(navigator.connection.type);
 	console.log(navigator.onLine);
+	
+	var statutConnect = navigator.onLine;
+
+	if (statutConnect=="false") 
+	{
+		onOffline();
+		console.log('OFFLINE');
+	}
+	else
+	{
+		console.log('ONLINE');
+	}
 }
 
 // process the confirmation dialog result
@@ -68,17 +80,6 @@ $(document).ready(function () {
 		e.preventDefault();
 	});
 	
-	var statutConnect = navigator.onLine;
-
-	if (statutConnect=="false") 
-	{
-		onOffline();
-		console.log('OFFLINE');
-	}
-	else
-	{
-		console.log('ONLINE');
-	}
 	//if (navigator.onLine==false) setTimeout(onOffline,2000);
 
     _menu_height=($('#menu').height()+10);
