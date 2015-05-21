@@ -23,7 +23,7 @@ Flux = {
 						//Videos.init();
 						Api.init();
 						Player.init();
-						Direct.init();
+						//Direct.init();
 					} else {
 						alert('connexion error flux');
 					}
