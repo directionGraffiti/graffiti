@@ -121,9 +121,9 @@ Player = {
 		
 		
 		this.player_aod = JsPlayer.addPlayer({
-            'id': '1',
+            'id': '2',
             'el': $("#player_podcasts"),
-            'template_id': 'player-template',
+            'template_id': 'player-template2',
             'swf_path': 'flash/JsPlayer/jsplayer.swf',
             'on_ready': Player.playDefaultSound
         });
