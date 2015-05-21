@@ -214,6 +214,7 @@ Player = {
         $('#player_up .container_player .texte_player.row2').html('');
         $('#player_up .container_player img.icon_player').attr('src', '');
 
+		Player.refresh_status("direct");
         //Player.onMetadatas();
         Player.startMetadatasInterval();
 
@@ -247,7 +248,22 @@ Player = {
     setMetaDirect : function() {
         $('#player_picture').html('<img src="'+Player._list_meta_direct.node.field_image+'" border="0" />');
         setTimeout(Player.startMetadatasInterval(),10000);
-    }
+    },
 	
+	refresh_status : function(p_status) {
+		Player._status = p_status;
+        console.log('=============================================');
+        console.log('=============================================');
+        console.log('=============================================================== refresh_status='+p_status+' ================');
+        console.log('=============================================');
+        console.log('=============================================');
+		if (p_status!="direct") {
+            document.getElementById("btns_player").style.display="none";
+            document.getElementById("btn_reload").style.display="inline-block";
+        } else {
+            document.getElementById("btns_player").style.display="inline-block";
+            document.getElementById("btn_reload").style.display="none";
+        }
+	}
 };
 

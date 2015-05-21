@@ -93,6 +93,8 @@ Podcasts = {
             'time_end': getTimeStamp()+10000,
             'time_start': getTimeStamp()
         });
+		
+		Player.refresh_status('aod');
     },
 
     pausePodcast : function(p_node) {
