@@ -26,7 +26,7 @@ if(navigator.userAgent.match(/Android/i)) isAndroid2 = true;
 jembe.internet.listen(onOffline);
 
 console.log("<--------------jembe.internet.listen-------------->");
-console.log(jembe.internet.listen);
+console.log(onOffline);
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -65,6 +65,23 @@ $(document).ready(function () {
 	jembe.control.listenState(minimizeAPI);
 	//jembe.control.listenKey('4', chooseBackOptions, true);
 	//jembe.control.listenKey('82', openMenuAndroid);
+	
+	function checkConnection() {
+		var networkState = navigator.connection.type;
+	
+		var states = {};
+		states[Connection.UNKNOWN]  = 'Unknown connection';
+		states[Connection.ETHERNET] = 'Ethernet connection';
+		states[Connection.WIFI]     = 'WiFi connection';
+		states[Connection.CELL_2G]  = 'Cell 2G connection';
+		states[Connection.CELL_3G]  = 'Cell 3G connection';
+		states[Connection.CELL_4G]  = 'Cell 4G connection';
+		states[Connection.CELL]     = 'Cell generic connection';
+		states[Connection.NONE]     = 'No network connection';
+	
+		alert('Connection type: ' + states[networkState]);
+	}
+	checkConnection();
 
 	$(document).bind('touchmove',function(e) {
 		e.preventDefault();

@@ -37,6 +37,7 @@
 	<gap:plugin name="org.apache.cordova.dialogs"/>
 	<gap:plugin name="org.apache.cordova.vibration"/>
 	<gap:plugin name="org.apache.cordova.inappbrowser"/>
+	<gap:plugin name="org.apache.cordova.network-information"/>
 	
 	<icon src="images/logos/ios/57x57.png" gap:platform="ios" width="57" height="57" />
 	<icon src="images/logos/ios/72x72.png" gap:platform="ios" width="72" height="72" />
