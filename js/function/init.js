@@ -68,7 +68,7 @@ $(document).ready(function () {
 		e.preventDefault();
 	});
 
-	if (navigator.onLine==false) 
+	if (navigator.onLine=="false") 
 	{
 		onOffline();
 		console.log('OFFLINE');
@@ -189,7 +189,7 @@ function newCheckReseau(button) {
     {
     	console.log('Retest');
         window.close();
-		if (navigator.onLine==false) 
+		if (navigator.onLine=="false") 
 		{
 			onOffline();
 		}
