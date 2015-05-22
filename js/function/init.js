@@ -30,17 +30,22 @@ function onDeviceReady() {
 	console.log(navigator.connection.type);
 	console.log(navigator.onLine);
 	
-	var statutConnect = navigator.onLine;
-
-	if (statutConnect==false) 
+	function refreshConnect()
 	{
-		onOffline();
-		console.log('OFFLINE');
+		var statutConnect = navigator.onLine;
+	
+		if (statutConnect==false) 
+		{
+			onOffline();
+			console.log('OFFLINE');
+		}
+		else
+		{
+			console.log('ONLINE');
+		}
 	}
-	else
-	{
-		console.log('ONLINE');
-	}
+	
+	setInterval(refreshConnect,6000);
 }
 
 // process the confirmation dialog result
