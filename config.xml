@@ -1,12 +1,12 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.graffiti" version="1.0.1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.urbanradio.graffiti" version="1.0.1">
 
-	<name>Graffiti</name>
+	<name>Graffiti Urban Radio</name>
 	
 	<description>
 	Créée en 1986, Graffiti Urban Radio est depuis près de 30 ans la radio associative du Pays Yonnais.
 	</description>
 	
-	<author href="http://www.urban-radio.com/" email="direction@urban-radio.com">SUN</author>
+	<author href="http://www.urban-radio.com/" email="direction@urban-radio.com">Graffiti</author>
 	<content src="index.html"/>
 	
 	<preference name="permissions" value="none"/>

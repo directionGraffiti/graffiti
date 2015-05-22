@@ -6,7 +6,7 @@ Rater = {
 
     _later : 0,
 
-    _titre_appli : 'Sun',
+    _titre_appli : 'Graffiti',
 
     init : function() {
         console.log('Rater ::::: get num open');

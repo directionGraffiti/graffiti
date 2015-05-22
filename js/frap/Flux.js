@@ -33,6 +33,6 @@ Flux = {
 				}
 			});
 		}); //fin script Jquery  
-    },
-
+    }
+	
 }
