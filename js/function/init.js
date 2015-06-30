@@ -60,7 +60,11 @@ function onConfirm(button) {
     {
     	console.log('Windows close');
         //window.close();
+<<<<<<< HEAD
 		return;
+=======
+	return;
+>>>>>>> origin/master
     }
 }
 
