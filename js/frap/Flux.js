@@ -2,8 +2,6 @@ Flux = {
 
 	_url_flux : 'graffiti.js',
 
-    //_url_flux : 'http://www.urban-radio.com/appli/graffiti.js',//http://80.82.229.204/datasun/bocetoplayer/frap.js',
-
     _frap_flux : '',
 
     init : function() {
